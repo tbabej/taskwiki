@@ -405,7 +405,28 @@ identifier:
 ~   == List only the 5 first tasks | project:Home $T limit:5 ==
 
 The limit keyword will not be passed over to taskwarrior and is consumed only
-only by taskwiki.
+by taskwiki.
+
+------------------------
+5.2.4 Expiring viewports
+
+Every time you view or save a vimwiki file that contains taskwiki compatible
+tasks, the task lists will get updated. However, if you want to archive
+a file, this is undesirable as it will be updated every time you open it. In
+such a case, you can add an expiration date to the viewport you want taskwiki
+to ignore, using an exclamation mark and a date:
+
+~   == Will expire on 1st January 2021 | project:my !2021-01-01
+
+After January 1st, 2021, taskwiki will ignore the viewport and will not update
+the task list it contains.
+
+An expiry date can also be set in a preset header. A viewport can override the
+expiry date by specifying a new one:
+
+~   == Whole document is expired.. || !2020-01-01 ==
+~   === ...(expired) | +tag1 ===
+~   === ...except this viewport | +tag2 !2500-01-01 ===
 
 --------------------
 5.2.5 Default filter
