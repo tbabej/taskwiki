@@ -27,6 +27,8 @@ syntax cluster TaskWikiTaskContains
                 \ VimwikiNoExistsLinkT,
                 \ VimwikiWikiLink,
                 \ VimwikiWikiLinkT,
+                \ VimwikiWeblink1,
+                \ VimwikiWikilink1,
                 \ @Spell
 
 " Conceal the UUID
