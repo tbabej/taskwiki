@@ -41,7 +41,7 @@ endfor
 " Define active and deleted task regions
 " Will be colored dynamically by Meta().source_tw_colors()
 syntax match TaskWikiTaskActive containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s\[S\]\s[^#]*/
-syntax match TaskWikiTaskCompleted containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s\[X\]\s[^#]*/
+syntax match TaskWikiTaskCompleted containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s\[[Xx]\]\s[^#]*/
 syntax match TaskWikiTaskDeleted containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s*\[D\]\s[^#]*/
 syntax match TaskWikiTaskRecurring containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s\[R\]\s[^#]*/
 syntax match TaskWikiTaskWaiting containedin=TaskWikiTask contained contains=@TaskWikiTaskContains /\s*\*\s\[W\]\s[^#]*/
