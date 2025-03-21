@@ -301,8 +301,7 @@ class Mappings(object):
             column <= line.find(']]') + 1
         ]) or all([
             '[' in line,
-            ']' in line,
-            '(' in line,
+            '](' in line,
             ')' in line,
             column >= line.find('['),
             column <= line.find(')') + 1
