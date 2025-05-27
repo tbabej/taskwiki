@@ -311,3 +311,6 @@ and consider using a virtual machine or [Xvfb](https://www.x.org/releases/X11R7.
 When `tzlocal` library can't detect your local timezone, it has to be set [explicitly](https://github.com/tools-life/taskwiki/issues/110) using the environment variable `TZ`. For example, before launching vim:
 
     export TZ="Europe/Prague"
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/madhukumara1616/taskwiki?utm_source=oss&utm_medium=github&utm_campaign=madhukumara1616%2Ftaskwiki&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+
+    
