@@ -72,7 +72,7 @@ class IntegrationTest(object):
         self.command('let g:taskwiki_taskrc_location="{0}"'.format(self.taskrc_path))
         self.command('let g:vimwiki_list = [{"syntax": "%s", "ext": ".txt","path": "%s"}]' % (self.markup, self.dir))
 
-    def setup(self):
+    def setup_method(self):
         assert not self.client
 
         self.generate_data()
@@ -89,7 +89,7 @@ class IntegrationTest(object):
         self.filepath = os.path.join(self.dir, 'testwiki.txt')
         self.client.edit(self.filepath)
 
-    def teardown(self):
+    def teardown_method(self):
         if not self.client:
             return
 
@@ -216,8 +216,8 @@ class IntegrationTest(object):
                 success = True
                 break
             else:
-                self.teardown()
-                self.setup()
+                self.teardown_method()
+                self.setup_method()
 
         if not success:
             self.check_sanity(soft=False)
@@ -245,9 +245,9 @@ class MultiSyntaxIntegrationTest(IntegrationTest):
 
     markup = None
 
-    def setup(self):
+    def setup_method(self):
         if self.markup:
-            super(MultiSyntaxIntegrationTest, self).setup()
+            super(MultiSyntaxIntegrationTest, self).setup_method()
         else:
             pass
 

@@ -5,14 +5,14 @@ import sys
 
 
 class TestParsingVimwikiTask(object):
-    def setup(self):
+    def setup_method(self):
         self.mockvim = MockVim()
         self.cache = MockCache()
         sys.modules['vim'] = self.mockvim
         from taskwiki.vwtask import VimwikiTask
         self.VimwikiTask = VimwikiTask
 
-    def teardown(self):
+    def teardown_method(self):
         self.cache.reset()
 
     def test_simple(self):
