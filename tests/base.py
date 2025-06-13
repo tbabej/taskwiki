@@ -166,11 +166,14 @@ class IntegrationTest(object):
                 return False
 
         # Assert only note about Bram or Mike being maintainer is in messages
-        bramline = u'Messages maintainer: Bram Moolenaar <Bram@vim.org>'
-        mikeline = u'Messages maintainer: Mike Williams <mrw@eandem.co.uk>'
+        acceptable_default_messages = {
+            'Messages maintainer: Bram Moolenaar <Bram@vim.org>',
+            'Messages maintainer: Mike Williams <mrw@eandem.co.uk>',
+            'Messages maintainer: The Vim Project'
+        }
         if not soft:
-            assert self.client.command('messages') in (bramline, mikeline)
-        elif self.client.command('messages') not in (bramline, mikeline):
+            assert self.client.command('messages') in acceptable_default_messages
+        elif self.client.command('messages') not in acceptable_default_messages:
             return False
 
         # Assert that TW and cache objects exist
