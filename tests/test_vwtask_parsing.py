@@ -3,7 +3,6 @@ from datetime import datetime
 from tests.base import MockVim, MockCache
 import sys
 
-from tasklib import local_zone
 
 class TestParsingVimwikiTask(object):
     def setup(self):
@@ -41,7 +40,7 @@ class TestParsingVimwikiTask(object):
         vwtask = self.VimwikiTask.from_line(self.cache, 0)
 
         assert vwtask['description'] == u"Random task"
-        assert vwtask['due'] == local_zone.localize(datetime(2015,8,8,15,15))
+        assert vwtask['due'] == datetime(2015,8,8,15,15).astimezone()
         assert vwtask['uuid'] == None
         assert vwtask['priority'] == None
         assert vwtask['indent'] == ''
@@ -51,7 +50,7 @@ class TestParsingVimwikiTask(object):
         vwtask = self.VimwikiTask.from_line(self.cache, 0)
 
         assert vwtask['description'] == u"Random task"
-        assert vwtask['due'] == local_zone.localize(datetime(2015,8,8,0,0))
+        assert vwtask['due'] == datetime(2015,8,8,0,0).astimezone()
         assert vwtask['uuid'] == None
         assert vwtask['priority'] == None
         assert vwtask['indent'] == ''
@@ -87,7 +86,7 @@ class TestParsingVimwikiTask(object):
 
         assert vwtask['description'] == u"Due today"
         assert vwtask['priority'] == 'H'
-        assert vwtask['due'] == local_zone.localize(datetime(2015,8,8))
+        assert vwtask['due'] == datetime(2015,8,8,0,0).astimezone()
         assert vwtask['uuid'] == None
 
     def test_added_modstring(self):
