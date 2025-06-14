@@ -28,7 +28,7 @@ RUN sed -i -e '/#\s*undef _POSIX_THREADS/d' src/if_python3.c
 # This fixes Python3 detection for Python 3.10 and above
 RUN sed -i -e 's/import sys; print(sys\.version\[:3\])/import sys; print("{}.{}".format(sys.version_info.major, sys.version_info.minor))/' src/configure.ac src/auto/configure
 
-RUN ./configure --prefix=/opt/vim --enable-pythoninterp=yes --enable-python3interp=yes --enable-gui=gtk3
+RUN ./configure --prefix=/opt/vim --enable-pythoninterp=yes --enable-python3interp=yes --enable-gui=gtk3 --with-tlib=ncurses
 RUN make -j$(nproc)
 RUN make install
 
