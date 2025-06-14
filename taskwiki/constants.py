@@ -26,3 +26,39 @@ COMPLETION_RECUR = """
     daily day weekdays weekly biweekly fortnight monthly
     quarterly semiannual annual yearly biannual biyearly
 """.split()
+
+# Produced by: $ task _tags | grep -P '[A-Z]+'
+VIRTUAL_TAGS = set("""
+    ACTIVE
+    ANNOTATED
+    BLOCKED
+    BLOCKING
+    CHILD
+    COMPLETED
+    DELETED
+    DUE
+    DUETODAY
+    INSTANCE
+    LATEST
+    MONTH
+    ORPHAN
+    OVERDUE
+    PARENT
+    PENDING
+    PRIORITY
+    PROJECT
+    QUARTER
+    READY
+    SCHEDULED
+    TAGGED
+    TEMPLATE
+    TODAY
+    TOMORROW
+    UDA
+    UNBLOCKED
+    UNTIL
+    WAITING
+    WEEK
+    YEAR
+    YESTERDAY
+""".split())
