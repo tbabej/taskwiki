@@ -667,3 +667,22 @@ class TestViewportBufferModified(MultiSyntaxIntegrationTest):
         # testfile3 only has header, so refresh on open makes changes
         self.client.edit(testfile3)
         assert self.client.eval('&modified') == '1'
+
+
+class TestViewportsUppercaseTags(MultiSyntaxIntegrationTest):
+
+    viminput = """
+    HEADER2(Outworldly tasks | +UFO)
+    """
+
+    vimoutput = """
+    HEADER2(Outworldly tasks | +UFO)
+    * [ ] catch the flying saucer  #{uuid}
+    """
+
+    tasks = [
+        dict(description="catch the flying saucer", tags=['UFO']),
+    ]
+
+    def execute(self):
+        self.command("w", regex="written$", lines=1)

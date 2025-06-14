@@ -104,3 +104,33 @@ class TestParsingVimwikiTask(object):
         vwtask = self.VimwikiTask.from_line(self.cache, 0)
 
         assert vwtask['description'] == u"Task https://somewhere/dash--dash"
+
+    def test_added_modstring_with_tag(self):
+        self.cache.buffer[0] = "* [ ] Home task -- +home"
+        vwtask = self.VimwikiTask.from_line(self.cache, 0)
+
+        assert vwtask['description'] == u"Home task"
+        assert vwtask['tags'] == {"home"}
+        assert vwtask['priority'] == None
+        assert vwtask['due'] == None
+        assert vwtask['uuid'] == None
+
+    def test_added_modstring_with_uppercase_tag(self):
+        self.cache.buffer[0] = "* [ ] Home task -- +HOME"
+        vwtask = self.VimwikiTask.from_line(self.cache, 0)
+
+        assert vwtask['description'] == u"Home task"
+        assert vwtask['tags'] == {"HOME"}
+        assert vwtask['priority'] == None
+        assert vwtask['due'] == None
+
+    def test_added_modstring_with_virtual_tag_ignored(self):
+        self.cache.buffer[0] = "* [ ] Home task -- +OVERDUE"
+        vwtask = self.VimwikiTask.from_line(self.cache, 0)
+
+        assert vwtask['description'] == u"Home task"
+        assert vwtask['tags'] == set()
+        assert vwtask['priority'] == None
+        assert vwtask['due'] == None
+        assert vwtask['uuid'] == None
+        assert vwtask['uuid'] == None
