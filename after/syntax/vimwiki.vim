@@ -22,7 +22,6 @@ syntax cluster TaskWikiTaskContains
                 \ VimwikiCodeT,
                 \ VimwikiEqInT,
                 \ VimwikiLink,
-                \ VimwikiWeblink1,
                 \ VimwikiNoExistsLink,
                 \ VimwikiNoExistsLinkT,
                 \ VimwikiWikiLink,
